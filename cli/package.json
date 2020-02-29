@@ -1,0 +1,25 @@
+{
+  "name": "@thales-gelinger/monkey",
+  "version": "1.0.0",
+  "description": "A cli to generate all devOps monkey job",
+  "main": "src/index.js",
+  "bin": {
+    "@thales-gelinger/monkey": "bin/monkey",
+    "monkey": "bin/monkey"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "monkey"
+  ],
+  "author": "Thales Gelinger",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}
