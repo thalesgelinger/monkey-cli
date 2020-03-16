@@ -1,14 +1,8 @@
-import { GluegunCommand } from 'gluegun'
+import { GluegunToolbox } from 'gluegun'
 
-const command: GluegunCommand = {
+module.exports = {
   name: 'monkey',
-  run: async toolbox => {
-    const {
-      print: { info }
-    } = toolbox
-
-    info('Welcome to monkey')
+  run: async (toolbox: GluegunToolbox) => {
+    console.log('Welcome to monkey')
   }
 }
-
-module.exports = command
