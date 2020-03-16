@@ -1,14 +1,14 @@
-
 import { GluegunCommand } from 'gluegun'
-
 
 const command: GluegunCommand = {
   name: 'monkey',
   run: async toolbox => {
-    const { print } = toolbox
+    const {
+      print: { info }
+    } = toolbox
 
-    print.info('Welcome to your CLI')
-  },
+    info('Welcome to monkey')
+  }
 }
 
 module.exports = command

@@ -1,8 +1,7 @@
 {
-  "name": "monkey",
+  "name": "monkey-cli",
   "version": "0.0.1",
   "description": "monkey CLI",
-  "private": true,
   "types": "build/types/types.d.ts",
   "bin": {
     "monkey": "bin/monkey"

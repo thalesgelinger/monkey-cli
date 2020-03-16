@@ -1,7 +1,9 @@
-# Monkey
-A powerfull interface to solve all devOps monkey job service
+# monkey CLI
 
-### TO USE THE CLI AT FIRST TIME:
-- `cd cli`
-- `npm link`
-- `monkey`
+A CLI for all monkey jobs that exists in dev world.
+
+### To use this
+- run `npm install -g monkey-cli`
+- `monkey -h`
+
+
