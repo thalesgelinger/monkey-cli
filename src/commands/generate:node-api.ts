@@ -5,56 +5,61 @@ module.exports = {
   description: 'Create a bootstrap backend project for node js',
   run: async (toolbox: GluegunToolbox) => {
     const {
-      print: { success, error, info, spin },
+      print: { 
+        success, 
+        error, 
+        info, 
+        spin 
+      },
       parameters: { first },
       system,
       template
     } = toolbox
 
-    const projetcName = first
+    const name = first
 
-    if (!projetcName) {
+    if (!name) {
       error('You must type the name of the project')
       return
     }
 
-    info(`Creating ${projetcName}:`)
+    info(`Creating ${name}:`)
 
     let spinner = spin('Creating main files')
     await template.generate({
-      template: 'js/node/template-node-api/src/index.js',
-      target: `${projetcName}/src/index.js`
+      template: 'js/node/template-node-api/src/index.js.ejs',
+      target: `${name}/src/index.js`
     })
 
     await template.generate({
       template: 'js/node/template-node-api/src/routes.js.ejs',
-      target: `${projetcName}/src/routes.js`,
-      props: { name: projetcName }
+      target: `${name}/src/routes.js`,
+      props: { name }
     })
 
     await template.generate({
       template: 'js/node/template-node-api/.babelrc',
-      target: `${projetcName}/.babelrc`
+      target: `${name}/.babelrc`
     })
 
     await template.generate({
       template: 'js/node/template-node-api/.gitignore',
-      target: `${projetcName}/.gitignore`
+      target: `${name}/.gitignore`
     })
 
     await template.generate({
       template: 'js/node/template-node-api/package.json.ejs',
-      target: `${projetcName}/package.json`,
-      props: { name: projetcName }
+      target: `${name}/package.json`,
+      props: { name }
     })
     spinner.stop()
     spinner.succeed('Created main files')
 
     spinner = spin('Downloading node_modules')
-    await system.run(`cd ${projetcName} && npm install`)
+    await system.run(`cd ${name} && npm install`)
     spinner.stop()
     spinner.succeed('Downloaded node_modules')
 
-    success(`Generated your project called ${projetcName}`)
+    success(`Generated ${name}`)
   }
 }
