@@ -5,7 +5,7 @@ async function run(argv) {
     .brand('monkey')
     .src(__dirname)
     .plugins('./node_modules', { matching: 'monkey-*', hidden: true })
-    .help() 
+    .help()
     .version()
     .create()
   const toolbox = await cli.run(argv)

@@ -1,5 +1,5 @@
-export default function (string: String): String {
-    return string
+export default function(str: String): String {
+  return str
     .replace(new RegExp(/[-_]+/, 'g'), ' ')
     .replace(new RegExp(/[^\w\s]/, 'g'), '')
     .replace(
@@ -7,5 +7,5 @@ export default function (string: String): String {
       ($1, $2, $3) => `${$2.toUpperCase() + $3.toLowerCase()}`
     )
     .replace(new RegExp(/\s/, 'g'), '')
-    .replace(new RegExp(/\w/), s => s.toUpperCase());
+    .replace(new RegExp(/\w/), s => s.toUpperCase())
 }

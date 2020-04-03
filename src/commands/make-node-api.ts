@@ -5,12 +5,7 @@ module.exports = {
   description: 'Create a bootstrap backend project for node js',
   run: async (toolbox: GluegunToolbox) => {
     const {
-      print: { 
-        success, 
-        error, 
-        info, 
-        spin 
-      },
+      print: { success, error, info, spin },
       parameters: { first },
       system,
       template,
@@ -57,7 +52,7 @@ module.exports = {
     spinner.stop()
     spinner.succeed('Downloaded node_modules')
 
-    filesystem.append(`${name}/.gitignore`,"node_modules" )
+    filesystem.append(`${name}/.gitignore`, 'node_modules')
 
     success(`Generated ${name}`)
   }
