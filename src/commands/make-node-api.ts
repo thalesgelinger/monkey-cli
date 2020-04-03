@@ -1,7 +1,7 @@
 import { GluegunToolbox } from 'gluegun'
 
 module.exports = {
-  name: 'generate:node-api',
+  name: 'make:node-api',
   description: 'Create a bootstrap backend project for node js',
   run: async (toolbox: GluegunToolbox) => {
     const {

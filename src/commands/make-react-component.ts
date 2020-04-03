@@ -3,7 +3,7 @@ import { GluegunToolbox } from 'gluegun'
 import toPascalCase from "../utils/toPascalCase"
 
 module.exports = {
-  name: 'generate:react-component',
+  name: 'make:react-component',
   description: 'Create a bootstrap backend project for node js',
   run: async (toolbox: GluegunToolbox) => {
     const {

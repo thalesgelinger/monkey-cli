@@ -1,8 +1,8 @@
 import { GluegunToolbox } from 'gluegun'
 
 module.exports = {
-  name: 'monkey',
+  name: 'monk',
   run: async (toolbox: GluegunToolbox) => {
-    console.log('Welcome to monkey')
+    toolbox.print.success('Welcome to monkey')
   }
 }

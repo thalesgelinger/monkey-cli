@@ -4,6 +4,7 @@
   "description": "monkey CLI",
   "types": "build/types/types.d.ts",
   "bin": {
+    "monk": "bin/monkey",
     "monkey": "bin/monkey"
   },
   "scripts": {
