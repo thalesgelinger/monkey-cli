@@ -13,7 +13,8 @@ module.exports = {
       },
       parameters: { first },
       system,
-      template
+      template,
+      filesystem
     } = toolbox
 
     const name = first
@@ -43,11 +44,6 @@ module.exports = {
     })
 
     await template.generate({
-      template: 'js/node/template-node-api/.gitignore',
-      target: `${name}/.gitignore`
-    })
-
-    await template.generate({
       template: 'js/node/template-node-api/package.json.ejs',
       target: `${name}/package.json`,
       props: { name }
@@ -57,8 +53,11 @@ module.exports = {
 
     spinner = spin('Downloading node_modules')
     await system.run(`cd ${name} && npm install`)
+
     spinner.stop()
     spinner.succeed('Downloaded node_modules')
+
+    filesystem.append(`${name}/.gitignore`,"node_modules" )
 
     success(`Generated ${name}`)
   }
