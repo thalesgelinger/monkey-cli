@@ -19,8 +19,8 @@ jobs:
       with:
         node-version: 14.2.0
 
-    # - name: Update version
-    #   run: npm version patch
+    - name: Update version
+      run: npm version patch
 
     - name: Publish to npm
       uses: pascalgn/npm-publish-action@4f4bf159e299f65d21cd1cbd96fc5d53228036df
