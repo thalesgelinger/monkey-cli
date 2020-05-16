@@ -1,37 +1,33 @@
-name: CI
+name: Publish
 
-on: 
+on:
   push:
-    branches:    
+    branches:
       - master 
 
 jobs:
-  build:
+  npm-publish:
+    name: npm-publish
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
-    - uses: actions/checkout@v1
-    
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+
+    - name: Checkout repository
+      uses: actions/checkout@master
+
+    - name: Set up Node.js
+      uses: actions/setup-node@master
       with:
-        node-version: ${{ matrix.node-version }}
-    
-    - name: Install dependencies
-      run: |
-        npm install
+        node-version: 14.2.0
 
     # - name: Update version
-    #   run: |
-    #     npm version patch
+    #   run: npm version patch
 
-    - name: Publish npm
-      run: |
-        npm publish
+    - name: Publish to npm
+      uses: pascalgn/npm-publish-action@4f4bf159e299f65d21cd1cbd96fc5d53228036df
+      with: 
+        tag_name: "v%s"
+        tag_message: "v%s"
+        commit_pattern: "^Release (\\S+)"
       env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
