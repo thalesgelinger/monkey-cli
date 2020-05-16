@@ -2,7 +2,7 @@ import { githubApi } from './../service/api';
 import { GluegunToolbox } from 'gluegun'
 
 module.exports = {
-  name: 'make:github-repo',
+  name: 'mkrepo:github',
   description: 'Create a new repository on github',
   run: async (toolbox: GluegunToolbox) => {
     const {
@@ -23,6 +23,8 @@ module.exports = {
             error("You must specify a name for your new project")
             return 
         }
+
+        const spinner = spin("Creating repo")
 
         const data = {
             name,
@@ -60,23 +62,23 @@ module.exports = {
 
         const { data: repository } = await githubApi.post("/user/repos", data, { auth })
     
+        spinner.stop()
+
         return repository.clone_url
     }
 
     async function cloneRepo(repoUrl: String) {
+        const spinner = spin("Cloning remote repository to machine")
         await system.run(`git clone ${repoUrl}`)
+        spinner.stop()
     }
 
-    const spinner = spin("Creating repo")
     const repoUrl = await createRepo(repoName, repoDescription)
-    spinner.stop()
 
     if(repoUrl) {
-        spinner.start("Cloning remote repository to machine")
         await cloneRepo(repoUrl)
-        spinner.stop()
+        success("Repository succesfuly created")
     }        
 
-    success("Repository succesfuly created")
   }
 }
