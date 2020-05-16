@@ -4,7 +4,7 @@ import toPascalCase from '../utils/toPascalCase'
 
 module.exports = {
   name: 'make:react-component',
-  description: 'Create a bootstrap backend project for node js',
+  description: 'Generate a react componente',
   run: async (toolbox: GluegunToolbox) => {
     const {
       print: { success, error, info },

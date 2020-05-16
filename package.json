@@ -31,7 +31,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "gluegun": "latest"
+    "axios": "^0.19.2",
+    "gluegun": "latest",
+    "readline-sync": "^1.4.10"
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",
