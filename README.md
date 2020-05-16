@@ -13,8 +13,9 @@ A CLI for all monkey jobs that exists in dev world.
 - and run `monkey -h` to see what can you do with that
 
 #### Commands:
-  - make:nodeapi             Create a simple template for node api 
-  - make:rc                  Create a new react component
+  - mkrepo:github    Create a new repository on github              
+  - mkapi:node       Create a bootstrap backend project for node js 
+  - mk:rc            Generate a react component  
 
 
 ### undefined### undefined### undefined### undefined
