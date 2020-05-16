@@ -58,6 +58,8 @@ module.exports = {
 
     const repoUrl = createRepo(repoName, repoDescription)
 
+    console.log(repoUrl)
+
     if(repoUrl) {
         cloneRepo(repoUrl)
         doInitialCommit(repoName)
